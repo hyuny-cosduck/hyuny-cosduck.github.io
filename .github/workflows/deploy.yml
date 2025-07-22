@@ -25,14 +25,16 @@ jobs:
         run: |
           corepack enable
           pnpm install
+        working-directory: cosduck-landing
 
       - name: Build and Export
         run: |
           pnpm run build
           pnpm run export
+        working-directory: cosduck-landing
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./cosduck-landing/out
