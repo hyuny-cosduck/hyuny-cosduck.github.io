@@ -27,10 +27,8 @@ jobs:
           pnpm install
         working-directory: cosduck-landing
 
-      - name: Build and Export
-        run: |
-          pnpm run build
-          pnpm run export
+      - name: Build (Static Export)
+        run: pnpm run build
         working-directory: cosduck-landing
 
       - name: Deploy to GitHub Pages
