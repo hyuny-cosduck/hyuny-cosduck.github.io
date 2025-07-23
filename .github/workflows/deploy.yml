@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: 18
           cache: 'pnpm'
+          cache-dependency-path: cosduck-landing/pnpm-lock.yaml  # 👈 add this line
 
       - name: Install dependencies
         run: pnpm install
