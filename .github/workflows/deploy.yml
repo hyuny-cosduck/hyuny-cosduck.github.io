@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Next.js site to GitHub Pages
 
 on:
   push:
@@ -19,14 +19,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: pnpm
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
       - name: Install dependencies
         run: |
@@ -34,11 +40,11 @@ jobs:
           pnpm install
         working-directory: cosduck-landing
 
-      - name: Build with Next.js
+      - name: Build site
         run: pnpm build
         working-directory: cosduck-landing
 
-      - name: Upload static export
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: cosduck-landing/out
