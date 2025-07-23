@@ -37,6 +37,7 @@ jobs:
       - name: Install dependencies
         run: |
           corepack enable
+          corepack prepare pnpm@latest --activate # 🔹 Add this line to install pnpm
           pnpm install
         working-directory: cosduck-landing
 
