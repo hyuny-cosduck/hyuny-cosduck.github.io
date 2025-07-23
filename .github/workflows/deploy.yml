@@ -32,13 +32,9 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-          run_install: false
 
       - name: Install dependencies
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate # 🔹 Add this line to install pnpm
-          pnpm install
+        run: pnpm install
         working-directory: cosduck-landing
 
       - name: Build site
