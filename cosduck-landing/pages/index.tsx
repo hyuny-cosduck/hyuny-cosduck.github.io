@@ -1,7 +1,5 @@
+import CosduckLanding from '../cosduck-landing';
+
 export default function Home() {
-  return (
-    <main>
-      <h1>Hello from Pages Router!</h1>
-    </main>
-  )
+  return <CosduckLanding />;
 }
